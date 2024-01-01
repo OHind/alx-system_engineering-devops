@@ -34,15 +34,14 @@ defaults
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
 
-frontend http_front
-   bind *:80
-   bind *:443 ssl crt /etc/letsencrypt/live/www.hindo.tech/fullchain.pem
-   reqadd X-Forwarded-Proto:\ https
-   stats uri /haproxy?stats
-   default_backend web-servers
+frontend  http_front
+   bind *:443 ssl crt /etc/haproxy/certs/www.hindo.tech.pem
+   http-request set-header X-Forwarded-Proto http
+   http-request redirect scheme https if !{ ssl_fc }
+   use_backend http_back
 
-backend web-servers
+backend http_back
     balance roundrobin
     redirect scheme https if !{ ssl_fc }
-    server 40551-web-01 54.157.165.55:80 check
+    server 405511-web-01 54.157.165.55:80 check
     server 405511-web-02 18.207.142.172:80 check
