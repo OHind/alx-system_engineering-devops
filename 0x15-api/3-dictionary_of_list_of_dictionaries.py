@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-""" Python script to export data in the JSON format from all employees"""
-
+"""Python script to export data in the JSON format from all employees"""
 import json
 import requests
 import sys
