@@ -7,10 +7,8 @@ import sys
 
 if __name__ == '__main__':
     url = "https://jsonplaceholder.typicode.com/users"
-
     response = requests.get(url)
     employees = response.json()
-
     dictionary = {}
     for employee in employees:
         employee_id = employee.get('id')
