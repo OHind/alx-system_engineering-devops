@@ -1,5 +1,7 @@
 Postmortem: System goes down.
 
+![image](https://github.com/OHind/alx-system_engineering-devops/assets/18174519/a32d0352-b548-4c8b-a75f-a1609a44f747)
+
 Issue Summary:
 On April 2021, the company's server went down, no one could acess or load materials for work
 
